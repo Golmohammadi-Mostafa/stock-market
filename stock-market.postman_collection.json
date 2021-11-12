@@ -1,0 +1,213 @@
+{
+	"info": {
+		"_postman_id": "4adaee0f-2f56-44cb-8932-78c4e7349758",
+		"name": "stock-market",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getTokenAdmin",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": "*/*"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/users/signin?password=123&username=admin",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"signin"
+					],
+					"query": [
+						{
+							"key": "password",
+							"value": "123"
+						},
+						{
+							"key": "username",
+							"value": "admin"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getTokenUser",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": "*/*"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/users/signin?password=123&username=user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"signin"
+					],
+					"query": [
+						{
+							"key": "password",
+							"value": "123"
+						},
+						{
+							"key": "username",
+							"value": "user"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAllStocks",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "*/*"
+					},
+					{
+						"key": "Authorization",
+						"value": "bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOlt7ImF1dGhvcml0eSI6IlJPTEVfQURNSU4ifV0sImlhdCI6MTYzNjc1NzMyMSwiZXhwIjoxNjM2NzU3NjIxfQ.F0dMNd2dzgSV9bmej6_mSGxjGb3lsucM9nlZNA3Ug8Q"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/stocks",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"stocks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createNewStock",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": "*/*"
+					},
+					{
+						"key": "Authorization",
+						"value": "bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOlt7ImF1dGhvcml0eSI6IlJPTEVfQURNSU4ifV0sImlhdCI6MTYzNjc1NzMyMSwiZXhwIjoxNjM2NzU3NjIxfQ.F0dMNd2dzgSV9bmej6_mSGxjGb3lsucM9nlZNA3Ug8Q"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"currentPrice\": 250, \"name\": \"BIC\"}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/stocks",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"stocks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "partialUpdateStock",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "accept",
+						"value": "*/*"
+					},
+					{
+						"key": "Authorization",
+						"value": "bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOlt7ImF1dGhvcml0eSI6IlJPTEVfQURNSU4ifV0sImlhdCI6MTYzNjc1NzMyMSwiZXhwIjoxNjM2NzU3NjIxfQ.F0dMNd2dzgSV9bmej6_mSGxjGb3lsucM9nlZNA3Ug8Q"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"currentPrice\": 4000, \"name\": \"APPLE\"}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/stocks/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"stocks",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteStockById",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "accept",
+						"value": "*/*"
+					},
+					{
+						"key": "Authorization",
+						"value": "bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOlt7ImF1dGhvcml0eSI6IlJPTEVfQURNSU4ifV0sImlhdCI6MTYzNjc1NzMyMSwiZXhwIjoxNjM2NzU3NjIxfQ.F0dMNd2dzgSV9bmej6_mSGxjGb3lsucM9nlZNA3Ug8Q"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/stocks/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"stocks",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

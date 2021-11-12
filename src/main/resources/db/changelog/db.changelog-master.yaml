@@ -1,0 +1,13 @@
+databaseChangeLog:
+  - include:
+      file: db/changelog/20211112191400_init_entity_user.xml
+  - include:
+      file: db/changelog/20211112191500_init_entity_role.xml
+  - include:
+      file: db/changelog/20211112191600_init_users_roles.xml
+  - include:
+      file: db/changelog/20211112191700_add_data.xml
+  - include:
+      file: db/changelog/20211112191900_init_entity_stocks.xml
+  - include:
+      file: db/changelog/20211112192000_add_data_to_stock.xml

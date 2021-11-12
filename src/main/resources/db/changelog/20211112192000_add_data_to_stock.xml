@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="20211112192000-1" author="m.golmohammadi">
+        <comment>Inserting user and role</comment>
+        <insert tableName="STOCK">
+            <column name="ID" valueNumeric="1"/>
+            <column name="NAME" value="APPLE"/>
+            <column name="CURRENT_PRICE" value="1500"/>
+            <column name="LAST_UPDATE" value="NULL"/>
+        </insert>
+        <insert tableName="STOCK">
+            <column name="ID" valueNumeric="2"/>
+            <column name="NAME" value="LG"/>
+            <column name="CURRENT_PRICE" value="1400"/>
+            <column name="LAST_UPDATE" value="NULL"/>
+        </insert>
+        <insert tableName="STOCK">
+            <column name="ID" valueNumeric="3"/>
+            <column name="NAME" value="SONY"/>
+            <column name="CURRENT_PRICE" value="1300"/>
+            <column name="LAST_UPDATE" value="NULL"/>
+        </insert>
+        <insert tableName="STOCK">
+            <column name="ID" valueNumeric="4"/>
+            <column name="NAME" value="AMAZON"/>
+            <column name="CURRENT_PRICE" value="2000"/>
+            <column name="LAST_UPDATE" value="NULL"/>
+        </insert>
+        <insert tableName="STOCK">
+            <column name="ID" valueNumeric="5"/>
+            <column name="NAME" value="NIKE"/>
+            <column name="CURRENT_PRICE" value="1800"/>
+            <column name="LAST_UPDATE" value="NULL"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

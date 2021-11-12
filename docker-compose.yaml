@@ -1,0 +1,38 @@
+version: '3.6'
+services:
+  database:
+    image: postgres:latest
+    volumes:
+      - stock-market:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=123
+      - POSTGRES_DB=stocks
+  stock-market:
+    image: stock-market:1.0-SNAPSHOT
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    environment:
+      - TZ=Asia/Tehran
+      - 'spring.profiles.active=dev'
+      - 'spring.datasource.url=jdbc:postgresql://host.docker.internal:5432/stocks'
+    ports:
+      - 0.0.0.0:8080:8080
+volumes:
+  stock-market:
+
+# If you want to use H2 DB, so you can use this config:
+#services:
+#  app:
+#    build:
+#      context: ./
+#    environment:
+#      - _JAVA_OPTIONS=-Xmx512m -Xms256m
+#      - SPRING_PROFILES_ACTIVE=dev
+#      - SPRING_DATASOURCE_URL=jdbc:h2:mem:stocks
+#    # If you want to expose these ports outside your dev PC,
+#    ports:
+#      - 0.0.0.0:8080:8080

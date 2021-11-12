@@ -1,0 +1,40 @@
+server:
+  port: 8080 # This is the default port anyway, but you can change it here
+spring:
+  application:
+    name: stock-market
+  profiles:
+    active: dev
+
+  # Database
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/stocks
+#    driver-class-name: org.h2.Driver
+#    url: jdbc:h2:mem:stocks
+    username: root
+    password: 123
+
+  # JPA properties
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+    open-in-view: false
+    generate-ddl: false
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+#    database: h2
+#    database-platform: org.hibernate.dialect.H2Dialect
+
+  liquibase:
+    enabled: true
+security:
+  jwt:
+    token:
+      secret-key: secret-key
+      expire-length: 300000 # 5 minutes duration by default: 5 minutes * 60 seconds * 1000 miliseconds
+
+pagination:
+  page-number: 0
+  page-size: 25
